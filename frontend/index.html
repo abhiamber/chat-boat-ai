@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatDpt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-950">
+
+    <div class="mx-auto max-w-2xl mx-auto h-screen flex flex-col">
+        <div id="chat-container" class="p-4 space-y-3 mb-28 overflow-y-auto flex-1 w-full">
+        </div>
+
+        <div class="fixed bottom-0 mb-4 inset-x-0  p-3 mx-auto">
+            <div class="relative w-full max-w-2xl mx-auto">
+                <textarea id="input"
+                    class="w-full border rounded-lg p-2 pr-12 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    rows="2" placeholder="Type a message..."></textarea>
+
+                <button id='ask' class="absolute bottom-6 right-2 bg-blue-500 text-white px-3 py-1 rounded-md">
+                    Ask
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
