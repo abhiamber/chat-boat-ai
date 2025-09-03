@@ -13,7 +13,7 @@ const embeddings = new CohereEmbeddings({
     apiKey: process.env.COHERE_EMBADING_MODEL_KEY
 });
 
-const { PineconeStore } = require("@langchain/pinecone");
+const { PineconeStore } = require("@langchain/community/vectorstores/pinecone");
 const pinecone = new PineconeClient({ apiKey: process.env.PINCONE_KEY });
 
 const pineconeIndex = pinecone.index(process.env.PINCONE_INEX_NAME)
