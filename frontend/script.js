@@ -55,7 +55,7 @@ async function generate(chat) {
 async function callServer(inputText) {
 
     try {
-        let response = await fetch('http://localhost:3000/chat', {
+        let response = await fetch('https://chat-boat-ai.onrender.com/chat', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
