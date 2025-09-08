@@ -45,7 +45,7 @@ An intelligent personal assistant powered by advanced AI techniques including to
 
 # web url
 
-https://comfy-faloodeh-481bfe.netlify.app/
+https://assistifyaiagent.netlify.app/
 
 # API
 
