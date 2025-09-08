@@ -14,12 +14,12 @@ app.get('/', (req, res) => {
 
 app.post('/chat', async (req, res) => {
     try {
-        const { message, threadId } = req.body;
+        const { message, threadId , isResouceButtonClicked} = req.body;
         if (!message || !threadId) {
             return res.status(400).json({ error: "Business validation error!" });
         }
 
-        const result = await generate({question: message, threadId});
+        const result = await generate({question: message, threadId, isResouceButtonClicked});
 
         res.status(200).json({ success: true, result });
     } catch (err) {

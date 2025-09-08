@@ -57,7 +57,7 @@ let baseMessage = [
 
 
 
-async function generate({ question, threadId }) {
+async function generate({ question, threadId, isResouceButtonClicked }) {
     const store = await vectorStorefunc();
 
 
@@ -75,7 +75,7 @@ async function generate({ question, threadId }) {
 
     messages.push({
         role: "user",
-        content: question,
+        content: isResouceButtonClicked ? userQuery : question,
     },)
     let toolAttempts = 0;
     const maxToolAttempts = 5;

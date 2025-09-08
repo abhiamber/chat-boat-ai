@@ -1,6 +1,13 @@
 
 const input = document.getElementById("input")
 input.addEventListener('keyup', handleListner)
+const resource_btn = document.getElementById("resource_btn")
+let isResouceButtonClicked = false;
+resource_btn.addEventListener('click', ()=>{
+    isResouceButtonClicked = !isResouceButtonClicked
+    resource_btn.className = isResouceButtonClicked ? "bg-green-500 text-white ml-auto rounded-md p-2 m-4" : "bg-white text-black ml-auto rounded-md p-2 m-4"
+
+})
 
 const chatContainer = document.getElementById("chat-container")
 const akhButton = document.getElementById("ask")
@@ -60,7 +67,7 @@ async function callServer(inputText) {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ message: inputText, threadId })
+            body: JSON.stringify({ message: inputText, threadId, isResouceButtonClicked })
         })
 
         let data = await response.json()
