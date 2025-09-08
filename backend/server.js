@@ -6,7 +6,7 @@ const cors = require("cors")
 const { generate } = require("./chat-boat.js")
 app.use(express.json())
 app.use(cors())
-
+app.set("trust proxy", true);
 app.get('/', (req, res) => {
 
     res.send('Welcome to ChatDPT!')
@@ -14,12 +14,14 @@ app.get('/', (req, res) => {
 
 app.post('/chat', async (req, res) => {
     try {
-        const { message, threadId , isResouceButtonClicked} = req.body;
+        const { message, threadId, isResouceButtonClicked } = req.body;
+        let ip = req.headers["x-forwarded-for"]?.split(",")[0] || req.ip;
+
         if (!message || !threadId) {
             return res.status(400).json({ error: "Business validation error!" });
         }
 
-        const result = await generate({question: message, threadId, isResouceButtonClicked});
+        const result = await generate({ question: message, threadId: ip ?? threadId, isResouceButtonClicked });
 
         res.status(200).json({ success: true, result });
     } catch (err) {

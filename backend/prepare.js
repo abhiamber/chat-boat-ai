@@ -48,4 +48,4 @@ async function indexTheDocument(filePath) {
 
 module.exports = { vectorStorefunc }
 
-indexTheDocument("./signed_agreement_letter_10733.pdf")
+// indexTheDocument("./signed_agreement_letter_10733.pdf")
